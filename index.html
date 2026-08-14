@@ -1,927 +1,566 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Костровые чаши | Производство в Сочи</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Очаги из ЗММ стали | Металлоизделия ОЧАГ И ДОМ</title>
+  
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== БАЗОВЫЕ СТИЛИ (без изменений) ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0b0a07; color: #f0ebe3; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    /* ===== ХЕДЕР ===== */
+    .header { padding: 20px 0; border-bottom: 1px solid #2f2a22; background: #0b0a07; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); background: rgba(11, 10, 7, 0.85); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease; }
+    .logo:hover { transform: scale(1.02); }
+    .logo-icon { width: 44px; height: 44px; flex-shrink: 0; }
+    .logo-text { font-family: "Black Ops One", system-ui; font-weight: 400; font-size: 28px; color: #f5a623; letter-spacing: 1px; line-height: 1; }
+    .logo-text span { color: #f0ebe3; }
+    .logo-sub { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #b8b0a4; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+    .logo-wrapper { display: flex; flex-direction: column; line-height: 1; }
+    .header-phone { font-weight: 600; font-size: 20px; color: #f0ebe3; text-decoration: none; border: 1px solid #f5a623; padding: 8px 20px; border-radius: 40px; transition: 0.2s; }
+    .header-phone:hover { background: #f5a623; color: #0b0a07; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0b0a07;
-            color: #f0ebe3;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
+    /* ===== ГЕРОЙ ===== */
+    .hero { padding: 60px 0 80px; background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%); border-bottom: 1px solid #2f2a22; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .hero-title { font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .hero-title span { color: #f5a623; }
+    .hero-desc { font-size: 18px; color: #b8b0a4; max-width: 500px; margin-bottom: 32px; }
+    .hero-features { display: flex; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 36px; }
+    .hero-features li { list-style: none; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+    .hero-features li::before { content: "🔥"; font-size: 20px; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn { display: inline-block; padding: 14px 36px; border-radius: 60px; font-weight: 700; font-size: 18px; text-decoration: none; transition: 0.25s; cursor: pointer; border: none; background: transparent; color: #f0ebe3; }
+    .btn-primary { background: #f5a623; color: #0b0a07; box-shadow: 0 8px 20px rgba(245, 166, 35, 0.25); }
+    .btn-primary:hover { background: #ffb83d; transform: scale(1.02); box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35); }
+    .btn-outline { background: transparent; color: #f0ebe3; border: 1px solid #5a4f40; }
+    .btn-outline:hover { border-color: #f5a623; color: #f5a623; }
+    .hero-image { background: #1e1913; border-radius: 32px; padding: 20px; text-align: center; border: 1px solid #3f372b; box-shadow: 0 20px 40px rgba(0,0,0,0.6); overflow: hidden; }
+    .hero-image img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 20px; display: block; margin: 0 auto; }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    /* ===== СЕКЦИИ ===== */
+    .section { padding: 72px 0; border-bottom: 1px solid #2f2a22; }
+    .section-title { font-size: 38px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
+    .section-title span { color: #f5a623; }
+    .section-sub { color: #b8b0a4; font-size: 18px; max-width: 640px; margin-bottom: 48px; }
 
-        /* Header */
-        .header {
-            padding: 20px 0;
-            border-bottom: 1px solid #2f2a22;
-            background: #0b0a07;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(4px);
-            background: rgba(11, 10, 7, 0.85);
-        }
+    /* ===== КАРТОЧКИ ТОВАРОВ (КОЛЛЕКЦИИ) ===== */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .product-card { background: #16120e; padding: 32px 24px; border-radius: 24px; border: 1px solid #2f2a22; text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; position: relative; }
+    .product-card:hover { border-color: #f5a623; transform: translateY(-6px); box-shadow: 0 12px 30px rgba(245, 166, 35, 0.08); }
+    .product-card .badge { position: absolute; top: 16px; right: 16px; background: #f5a623; color: #0b0a07; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .product-icon { font-size: 44px; margin-bottom: 12px; }
+    .product-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: #f0ebe3; }
+    .product-card .product-style { font-size: 13px; color: #b8b0a4; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; background: #1e1913; padding: 2px 14px; border-radius: 20px; display: inline-block; border: 1px solid #2f2a22; }
+    .product-card p { color: #b8b0a4; font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
+    .product-card .material { font-size: 13px; color: #5a4f40; margin-top: 8px; padding-top: 8px; border-top: 1px solid #2f2a22; width: 100%; }
+    .product-card .material span { color: #f5a623; font-weight: 600; }
 
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+    /* ===== ПРЕИМУЩЕСТВА ===== */
+    .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 12px; }
+    .advantage-item { display: flex; gap: 16px; align-items: flex-start; }
+    .advantage-item .num { font-size: 32px; font-weight: 800; color: #f5a623; min-width: 44px; }
+    .advantage-item h4 { font-size: 20px; margin-bottom: 4px; }
+    .advantage-item p { color: #b8b0a4; font-size: 15px; }
+    .creative-block { background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px; }
+    .creative-block h3 { font-size: 28px; font-weight: 700; }
+    .creative-block p { color: #b8b0a4; max-width: 500px; }
+    .creative-tag { background: #f5a623; color: #0b0a07; padding: 10px 28px; border-radius: 60px; font-weight: 700; font-size: 18px; }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #f5a623;
-        }
-        .logo span {
-            color: #f0ebe3;
-            font-weight: 400;
-        }
+    /* ===== ЦЕНА И КОНТАКТЫ ===== */
+    .price-block { background: #1e1913; border-radius: 32px; padding: 40px 48px; border: 1px solid #f5a623; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px; }
+    .price-block .big { font-size: 42px; font-weight: 800; color: #f5a623; }
+    .price-block .small { color: #b8b0a4; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; }
+    .contact-item { display: flex; flex-direction: column; gap: 8px; }
+    .contact-item .label { color: #b8b0a4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .contact-item .value { font-size: 24px; font-weight: 600; }
+    .contact-item .value a { color: #f0ebe3; text-decoration: none; }
+    .contact-item .value a:hover { color: #f5a623; }
+    .city-badge { background: #2f2a22; padding: 4px 16px; border-radius: 40px; font-weight: 600; display: inline-block; font-size: 14px; color: #f5a623; }
+    .footer { padding: 32px 0; text-align: center; color: #5a4f40; font-size: 14px; border-top: 1px solid #2f2a22; }
 
-        .header-phone {
-            font-weight: 600;
-            font-size: 20px;
-            color: #f0ebe3;
-            text-decoration: none;
-            border: 1px solid #f5a623;
-            padding: 8px 20px;
-            border-radius: 40px;
-            transition: 0.2s;
-        }
-        .header-phone:hover {
-            background: #f5a623;
-            color: #0b0a07;
-        }
+    /* ===== ФОРМА ЗАКАЗА ===== */
+    .order-form { background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; margin-top: 40px; }
+    .order-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .order-form .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .order-form label { font-weight: 600; font-size: 14px; color: #b8b0a4; letter-spacing: 0.03em; text-transform: uppercase; }
+    .order-form input, .order-form textarea, .order-form select { background: #0b0a07; border: 1px solid #2f2a22; border-radius: 16px; padding: 14px 18px; font-size: 16px; color: #f0ebe3; font-family: inherit; transition: 0.2s; width: 100%; }
+    .order-form input:focus, .order-form textarea:focus, .order-form select:focus { outline: none; border-color: #f5a623; box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15); }
+    .order-form textarea { min-height: 90px; resize: vertical; }
+    .order-form .form-full { grid-column: 1 / -1; }
+    .checkbox-group { display: flex; align-items: flex-start; gap: 12px; margin: 20px 0; padding: 16px; background: #0b0a07; border-radius: 16px; border: 1px solid #2f2a22; transition: 0.2s; }
+    .checkbox-group:hover { border-color: #5a4f40; }
+    .checkbox-group input[type="checkbox"] { width: 22px; height: 22px; min-width: 22px; margin-top: 2px; accent-color: #f5a623; cursor: pointer; background: #0b0a07; border: 2px solid #5a4f40; border-radius: 6px; transition: 0.2s; }
+    .checkbox-group input[type="checkbox"]:checked { border-color: #f5a623; }
+    .checkbox-group label { font-size: 15px; color: #b8b0a4; cursor: pointer; font-weight: 400; text-transform: none; letter-spacing: 0; line-height: 1.4; }
+    .checkbox-group label a { color: #f5a623; text-decoration: none; cursor: pointer; }
+    .checkbox-group label a:hover { text-decoration: underline; }
+    .checkbox-group .required-star { color: #f5a623; margin-right: 4px; }
+    .order-form .btn-submit { background: #f5a623; color: #0b0a07; padding: 16px 40px; border: none; border-radius: 60px; font-weight: 700; font-size: 20px; cursor: pointer; transition: 0.25s; width: 100%; opacity: 0.5; pointer-events: none; }
+    .order-form .btn-submit.active { opacity: 1; pointer-events: auto; }
+    .order-form .btn-submit.active:hover { background: #ffb83d; transform: scale(1.01); box-shadow: 0 8px 24px rgba(245, 166, 35, 0.3); }
+    .order-form .btn-submit.active { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); } }
+    .order-form .form-hint { color: #5a4f40; font-size: 14px; margin-top: 12px; text-align: center; }
+    .order-form .telegram-btn { display: inline-flex; align-items: center; gap: 10px; background: #1e1913; border: 1px solid #2f2a22; border-radius: 40px; padding: 10px 24px; color: #f0ebe3; text-decoration: none; font-weight: 600; transition: 0.2s; margin-top: 8px; }
+    .order-form .telegram-btn:hover { border-color: #f5a623; color: #f5a623; }
+    .order-form .telegram-btn svg { fill: currentColor; width: 24px; height: 24px; }
 
-        /* Hero */
-        .hero {
-            padding: 60px 0 80px;
-            background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%);
-            border-bottom: 1px solid #2f2a22;
-        }
+    /* ===== МОДАЛЬНОЕ ОКНО ===== */
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; animation: blink-bg 1.5s ease-in-out infinite alternate; }
+    .modal-overlay.active { display: flex; }
+    @keyframes blink-bg { 0% { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(6px); } 100% { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(12px); } }
+    .modal { background: #16120e; border: 1px solid #2f2a22; border-radius: 32px; max-width: 720px; width: 100%; max-height: 80vh; overflow-y: auto; padding: 40px 48px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8); animation: modal-fadein 0.3s ease-out; }
+    @keyframes modal-fadein { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .modal::-webkit-scrollbar { width: 6px; }
+    .modal::-webkit-scrollbar-track { background: #0b0a07; border-radius: 10px; }
+    .modal::-webkit-scrollbar-thumb { background: #f5a623; border-radius: 10px; }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: #b8b0a4; font-size: 22px; opacity: 0.3; cursor: pointer; transition: opacity 0.2s, transform 0.2s; line-height: 1; padding: 4px 8px; border-radius: 4px; }
+    .modal-close:hover { opacity: 0.8; transform: rotate(90deg); }
+    .modal h2 { font-size: 28px; font-weight: 700; color: #f5a623; margin-bottom: 20px; padding-right: 40px; }
+    .modal h3 { font-size: 18px; font-weight: 600; color: #f0ebe3; margin: 20px 0 10px; }
+    .modal p { color: #b8b0a4; font-size: 15px; line-height: 1.6; margin-bottom: 12px; }
+    .modal ul { color: #b8b0a4; font-size: 15px; line-height: 1.6; padding-left: 20px; margin-bottom: 12px; }
+    .modal ul li { margin-bottom: 6px; }
+    .modal .highlight { color: #f5a623; font-weight: 600; }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-size: 52px;
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-        }
-        .hero-title span {
-            color: #f5a623;
-        }
-
-        .hero-desc {
-            font-size: 18px;
-            color: #b8b0a4;
-            max-width: 500px;
-            margin-bottom: 32px;
-        }
-
-        .hero-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px 32px;
-            margin-bottom: 36px;
-        }
-        .hero-features li {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-        }
-        .hero-features li::before {
-            content: "🔥";
-            font-size: 20px;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 36px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
-            text-decoration: none;
-            transition: 0.25s;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            color: #f0ebe3;
-        }
-        .btn-primary {
-            background: #f5a623;
-            color: #0b0a07;
-            box-shadow: 0 8px 20px rgba(245, 166, 35, 0.25);
-        }
-        .btn-primary:hover {
-            background: #ffb83d;
-            transform: scale(1.02);
-            box-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
-        }
-        .btn-outline {
-            background: transparent;
-            color: #f0ebe3;
-            border: 1px solid #5a4f40;
-        }
-        .btn-outline:hover {
-            border-color: #f5a623;
-            color: #f5a623;
-        }
-
-        .hero-image {
-            background: #1e1913;
-            border-radius: 32px;
-            padding: 20px;
-            text-align: center;
-            border: 1px solid #3f372b;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
-        .hero-image svg {
-            width: 100%;
-            height: auto;
-            max-height: 360px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* Section */
-        .section {
-            padding: 72px 0;
-            border-bottom: 1px solid #2f2a22;
-        }
-
-        .section-title {
-            font-size: 38px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            margin-bottom: 16px;
-        }
-        .section-title span {
-            color: #f5a623;
-        }
-        .section-sub {
-            color: #b8b0a4;
-            font-size: 18px;
-            max-width: 640px;
-            margin-bottom: 48px;
-        }
-
-        /* Форматы */
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 28px;
-        }
-
-        .format-card {
-            background: #16120e;
-            padding: 32px 20px;
-            border-radius: 24px;
-            border: 1px solid #2f2a22;
-            text-align: center;
-            transition: 0.2s;
-        }
-        .format-card:hover {
-            border-color: #f5a623;
-            transform: translateY(-4px);
-        }
-        .format-icon {
-            font-size: 48px;
-            margin-bottom: 12px;
-        }
-        .format-card h3 {
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-        .format-card p {
-            color: #b8b0a4;
-            font-size: 15px;
-        }
-
-        /* Преимущества */
-        .advantage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 12px;
-        }
-        .advantage-item {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-        .advantage-item .num {
-            font-size: 32px;
-            font-weight: 800;
-            color: #f5a623;
-            min-width: 44px;
-        }
-        .advantage-item h4 {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-        .advantage-item p {
-            color: #b8b0a4;
-            font-size: 15px;
-        }
-
-        /* творческий подход */
-        .creative-block {
-            background: #16120e;
-            border-radius: 32px;
-            padding: 40px 48px;
-            border: 1px solid #2f2a22;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-        .creative-block h3 {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        .creative-block p {
-            color: #b8b0a4;
-            max-width: 500px;
-        }
-        .creative-tag {
-            background: #f5a623;
-            color: #0b0a07;
-            padding: 10px 28px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        /* цена / контакт */
-        .price-block {
-            background: #1e1913;
-            border-radius: 32px;
-            padding: 40px 48px;
-            border: 1px solid #f5a623;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-        }
-        .price-block .big {
-            font-size: 42px;
-            font-weight: 800;
-            color: #f5a623;
-        }
-        .price-block .small {
-            color: #b8b0a4;
-        }
-
-        /* контакты */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: #16120e;
-            border-radius: 32px;
-            padding: 40px 48px;
-            border: 1px solid #2f2a22;
-        }
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .contact-item .label {
-            color: #b8b0a4;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .contact-item .value {
-            font-size: 24px;
-            font-weight: 600;
-        }
-        .contact-item .value a {
-            color: #f0ebe3;
-            text-decoration: none;
-        }
-        .contact-item .value a:hover {
-            color: #f5a623;
-        }
-
-        .city-badge {
-            background: #2f2a22;
-            padding: 4px 16px;
-            border-radius: 40px;
-            font-weight: 600;
-            display: inline-block;
-            font-size: 14px;
-            color: #f5a623;
-        }
-
-        .footer {
-            padding: 32px 0;
-            text-align: center;
-            color: #5a4f40;
-            font-size: 14px;
-            border-top: 1px solid #2f2a22;
-        }
-
-        /* ===== ФОРМА ЗАКАЗА ===== */
-        .order-form {
-            background: #16120e;
-            border-radius: 32px;
-            padding: 40px 48px;
-            border: 1px solid #2f2a22;
-            margin-top: 40px;
-        }
-        .order-form .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .order-form .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .order-form label {
-            font-weight: 600;
-            font-size: 14px;
-            color: #b8b0a4;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
-        }
-        .order-form input,
-        .order-form textarea,
-        .order-form select {
-            background: #0b0a07;
-            border: 1px solid #2f2a22;
-            border-radius: 16px;
-            padding: 14px 18px;
-            font-size: 16px;
-            color: #f0ebe3;
-            font-family: inherit;
-            transition: 0.2s;
-            width: 100%;
-        }
-        .order-form input:focus,
-        .order-form textarea:focus,
-        .order-form select:focus {
-            outline: none;
-            border-color: #f5a623;
-            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
-        }
-        .order-form textarea {
-            min-height: 90px;
-            resize: vertical;
-        }
-        .order-form .form-full {
-            grid-column: 1 / -1;
-        }
-
-        /* Стили для чекбокса согласия */
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin: 20px 0;
-            padding: 16px;
-            background: #0b0a07;
-            border-radius: 16px;
-            border: 1px solid #2f2a22;
-            transition: 0.2s;
-        }
-        .checkbox-group:hover {
-            border-color: #5a4f40;
-        }
-        .checkbox-group input[type="checkbox"] {
-            width: 22px;
-            height: 22px;
-            min-width: 22px;
-            margin-top: 2px;
-            accent-color: #f5a623;
-            cursor: pointer;
-            background: #0b0a07;
-            border: 2px solid #5a4f40;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
-        .checkbox-group input[type="checkbox"]:checked {
-            border-color: #f5a623;
-        }
-        .checkbox-group label {
-            font-size: 15px;
-            color: #b8b0a4;
-            cursor: pointer;
-            font-weight: 400;
-            text-transform: none;
-            letter-spacing: 0;
-            line-height: 1.4;
-        }
-        .checkbox-group label a {
-            color: #f5a623;
-            text-decoration: none;
-        }
-        .checkbox-group label a:hover {
-            text-decoration: underline;
-        }
-        .checkbox-group .required-star {
-            color: #f5a623;
-            margin-right: 4px;
-        }
-
-        .order-form .btn-submit {
-            background: #f5a623;
-            color: #0b0a07;
-            padding: 16px 40px;
-            border: none;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 20px;
-            cursor: pointer;
-            transition: 0.25s;
-            width: 100%;
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        .order-form .btn-submit.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .order-form .btn-submit.active:hover {
-            background: #ffb83d;
-            transform: scale(1.01);
-            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.3);
-        }
-
-        .order-form .form-hint {
-            color: #5a4f40;
-            font-size: 14px;
-            margin-top: 12px;
-            text-align: center;
-        }
-        .order-form .telegram-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #1e1913;
-            border: 1px solid #2f2a22;
-            border-radius: 40px;
-            padding: 10px 24px;
-            color: #f0ebe3;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.2s;
-            margin-top: 8px;
-        }
-        .order-form .telegram-btn:hover {
-            border-color: #f5a623;
-            color: #f5a623;
-        }
-        .order-form .telegram-btn svg {
-            fill: currentColor;
-            width: 24px;
-            height: 24px;
-        }
-        .order-form .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px 24px;
-            align-items: center;
-            margin-top: 12px;
-        }
-
-        /* Анимация для кнопки */
-        .btn-submit.active {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-desc {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .hero-features {
-                justify-content: center;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-                padding: 28px;
-            }
-            .price-block, .creative-block {
-                flex-direction: column;
-                text-align: center;
-                padding: 28px;
-            }
-            .hero-title {
-                font-size: 38px;
-            }
-            .section-title {
-                font-size: 30px;
-            }
-            .order-form .form-row {
-                grid-template-columns: 1fr;
-            }
-            .order-form {
-                padding: 28px 20px;
-            }
-            .checkbox-group {
-                padding: 12px;
-            }
-        }
-        @media (max-width: 480px) {
-            .header-inner {
-                flex-direction: column;
-                align-items: stretch;
-                text-align: center;
-            }
-            .header-phone {
-                align-self: center;
-            }
-            .hero-title {
-                font-size: 30px;
-            }
-            .checkbox-group label {
-                font-size: 14px;
-            }
-        }
-    </style>
+    /* ===== АДАПТИВНОСТЬ (сокращено для компактности) ===== */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-desc { margin-left: auto; margin-right: auto; }
+      .hero-features { justify-content: center; }
+      .btn-group { justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; padding: 28px; }
+      .price-block, .creative-block { flex-direction: column; text-align: center; padding: 28px; }
+      .hero-title { font-size: 38px; }
+      .section-title { font-size: 30px; }
+      .order-form .form-row { grid-template-columns: 1fr; }
+      .order-form { padding: 28px 20px; }
+      .checkbox-group { padding: 12px; }
+      .hero-image img { max-height: 300px; }
+      .modal { padding: 28px 24px; }
+      .modal h2 { font-size: 24px; }
+      .modal-close { font-size: 20px; top: 12px; right: 16px; }
+      .logo-text { font-size: 24px; }
+      .logo-icon { width: 32px; height: 32px; }
+      .products-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .header-inner { flex-direction: column; align-items: stretch; text-align: center; }
+      .header-phone { align-self: center; }
+      .hero-title { font-size: 30px; }
+      .checkbox-group label { font-size: 14px; }
+      .hero-image img { max-height: 220px; }
+      .modal { padding: 20px 16px; }
+      .modal-overlay { padding: 10px; }
+      .modal-close { font-size: 18px; top: 10px; right: 12px; }
+      .logo { justify-content: center; }
+      .logo-text { font-size: 20px; }
+      .logo-icon { width: 28px; height: 28px; }
+      .logo-sub { font-size: 8px; letter-spacing: 1px; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- ===== ХЕДЕР ===== -->
 <header class="header">
-    <div class="container header-inner">
-        <div class="logo">ЧАШИ<span>СОЧИ</span></div>
-        <a href="tel:+79388772210" class="header-phone">+7 938 877-22-10</a>
-    </div>
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Очаг и Дом - главная">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#f5a623" stroke-width="2"/>
+        <path d="M20 6C15 6 12 11 12 16c0 5 3 8 8 8s8-3 8-8c0-5-3-10-8-10z" fill="#f5a623" opacity="0.9"/>
+        <path d="M9 24 L31 24 L28 32 L12 32 Z" fill="#f5a623" opacity="0.5"/>
+        <rect x="16" y="32" width="8" height="3" rx="1.5" fill="#f5a623" opacity="0.3"/>
+        <path d="M16 14 L20 10 L24 14 L22 18 L18 18 Z" fill="#0b0a07"/>
+      </svg>
+      <div class="logo-wrapper">
+        <div class="logo-text">ОЧАГ <span>И ДОМ</span></div>
+        <div class="logo-sub">🔥 Металлоизделия | Сочи</div>
+      </div>
+    </a>
+    <a href="tel:+79388772210" class="header-phone">+7 938 877-22-10</a>
+  </div>
 </header>
 
-<!-- Hero -->
+<!-- ===== ГЕРОЙ ===== -->
 <section class="hero">
-    <div class="container hero-grid">
-        <div>
-            <h1 class="hero-title">
-                Костровые чаши <span>с душой</span> и характером
-            </h1>
-            <p class="hero-desc">
-                Собственное производство в Сочи. Любые форматы, творческий подход, 
-                изготовление в срок и честные цены.
-            </p>
-            <ul class="hero-features">
-                <li>Своя разработка</li>
-                <li>Любые форматы</li>
-                <li>Низкие цены</li>
-                <li>Срок точно</li>
-            </ul>
-            <div class="btn-group">
-                <a href="#order" class="btn btn-primary">Сделать заказ</a>
-                <a href="#formats" class="btn btn-outline">Смотреть форматы</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/%D0%BA%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D1%8F.jfif" alt="Костровая чаша" style="width:100%; border-radius:16px;">
-        </div>
+  <div class="container hero-grid">
+    <div>
+      <h1 class="hero-title">Очаги из <span>ЗММ стали</span> для вашего дома</h1>
+      <p class="hero-desc">Собственное производство в Сочи. Коллекции от классики до минимализма. Ручная работа, толщина стали 3 мм, индивидуальный дизайн.</p>
+      <ul class="hero-features">
+        <li>🔥 ЗММ сталь 3 мм</li>
+        <li>🎨 Любые стили</li>
+        <li>⚒️ Ручная работа</li>
+        <li>📦 Срок точно</li>
+      </ul>
+      <div class="btn-group">
+        <a href="#order" class="btn btn-primary">Заказать очаг</a>
+        <a href="#catalog" class="btn btn-outline">Смотреть коллекции</a>
+      </div>
     </div>
+    <div class="hero-image">
+      <img src="https://via.placeholder.com/600x400/1a1a1a/f5a623?text=Очаг+из+стали" alt="Очаг из ЗММ стали" />
+    </div>
+  </div>
 </section>
 
-<!-- Форматы -->
-<section class="section" id="formats">
-    <div class="container">
-        <h2 class="section-title">Любые <span>форматы</span> под ваш стиль</h2>
-        <p class="section-sub">От классических чаш до авторских решений — мы создаём то, что идеально впишется в ваш двор, беседку или глэмпинг.</p>
-        <div class="formats-grid">
-            <div class="format-card">
-                <div class="format-icon">🔥</div>
-                <h3>Классика</h3>
-                <p>Стальные чаши, кованые опоры, лаконичный дизайн</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">⚡</div>
-                <h3>Модерн</h3>
-                <p>Геометрия, цветной металл, нестандартные формы</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">🌿</div>
-                <h3>Эко-стиль</h3>
-                <p>Состаренный металл, природные линии, под старину</p>
-            </div>
-            <div class="format-card">
-                <div class="format-icon">🧊</div>
-                <h3>Минимал</h3>
-                <p>Строгие формы, монолит, идеально для городского стиля</p>
-            </div>
-        </div>
+<!-- ===== КОЛЛЕКЦИИ ===== -->
+<section class="section" id="catalog">
+  <div class="container">
+    <h2 class="section-title">Наши <span>коллекции</span></h2>
+    <p class="section-sub">Классические и минималистские очаги из высококачественной ЗММ стали. Каждая модель – это гармония формы и огня.</p>
+    <div class="products-grid">
+      <div class="product-card">
+        <span class="badge">Классика</span>
+        <div class="product-icon">🏛️</div>
+        <h3>Викторианский</h3>
+        <div class="product-style">Орнамент, витые элементы</div>
+        <p>Изысканный узор, ручная ковка, экран от искр.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
+      <div class="product-card">
+        <span class="badge">Классика</span>
+        <div class="product-icon">🌍</div>
+        <h3>Колониальный</h3>
+        <div class="product-style">Круглый, тяжёлые ножки-кольца</div>
+        <p>Сетчатый экран от искр, массивный и надёжный.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
+      <div class="product-card">
+        <span class="badge">Классика</span>
+        <div class="product-icon">🔨</div>
+        <h3>Ремесленник</h3>
+        <div class="product-style">Шестигранный, кованый</div>
+        <p>Сетчатый экран, ручная работа, деревенский шарм.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
+      <div class="product-card">
+        <span class="badge">Минимализм</span>
+        <div class="product-icon">⬛</div>
+        <h3>Пустота</h3>
+        <div class="product-style">Глубокий квадратный сосуд</div>
+        <p>Невидимые швы, лаконичность и глубина.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
+      <div class="product-card">
+        <span class="badge">Минимализм</span>
+        <div class="product-icon">➖</div>
+        <h3>Линня</h3>
+        <div class="product-style">Ультратонкий прямоугольник</div>
+        <p>Газовая горелка, строгая геометрия.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
+      <div class="product-card">
+        <span class="badge">Минимализм</span>
+        <div class="product-icon">⭕</div>
+        <h3>Диск</h3>
+        <div class="product-style">Простой, элегантный</div>
+        <p>Идеальный круг, толщина 3 мм, без лишних деталей.</p>
+        <div class="material">Материал: <span>ЗММ сталь 3 мм</span></div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Преимущества + творческий подход -->
+<!-- ===== ПРЕИМУЩЕСТВА ===== -->
 <section class="section">
-    <div class="container">
-        <h2 class="section-title">Почему <span>выбирают</span> нас</h2>
-        <div class="advantage-grid">
-            <div class="advantage-item">
-                <div class="num">01</div>
-                <div><h4>Своё производство</h4><p>Полный контроль качества, от листа металла до финальной обработки. Сочи — мы здесь.</p></div>
-            </div>
-            <div class="advantage-item">
-                <div class="num">02</div>
-                <div><h4>Творческий подход</h4><p>Не штамповка, а авторская работа. Придумаем форму под ваши пожелания.</p></div>
-            </div>
-            <div class="advantage-item">
-                <div class="num">03</div>
-                <div><h4>Срок & цена</h4><p>Изготовление от 5 дней. Цены ниже рыночных — без наценок посредников.</p></div>
-            </div>
-        </div>
-
-        <div class="creative-block" style="margin-top: 48px;">
-            <div>
-                <h3>🎨 Своя разработка</h3>
-                <p>Мы не копируем, мы создаём. Эскизы, 3D-модели, ручная работа — каждый проект уникален.</p>
-            </div>
-            <div class="creative-tag">#индивидуальность</div>
-        </div>
+  <div class="container">
+    <h2 class="section-title">Почему <span>выбирают</span> нас</h2>
+    <div class="advantage-grid">
+      <div class="advantage-item">
+        <div class="num">01</div>
+        <div><h4>ЗММ сталь 3 мм</h4><p>Высококачественная сталь, устойчивость к высоким температурам и долговечность.</p></div>
+      </div>
+      <div class="advantage-item">
+        <div class="num">02</div>
+        <div><h4>Ручная работа</h4><p>Каждый очаг создаётся вручную, с вниманием к каждой детали.</p></div>
+      </div>
+      <div class="advantage-item">
+        <div class="num">03</div>
+        <div><h4>Индивидуальный дизайн</h4><p>Мы разрабатываем модели по вашим эскизам – любые формы и размеры.</p></div>
+      </div>
     </div>
+    <div class="creative-block" style="margin-top:48px;">
+      <div>
+        <h3>🎨 Собственное производство в Сочи</h3>
+        <p>Полный цикл: от разработки до финальной обработки. Сроки от 7 дней, честные цены без посредников.</p>
+      </div>
+      <div class="creative-tag">#качествогарантируем</div>
+    </div>
+  </div>
 </section>
 
-<!-- Цена и контакты -->
+<!-- ===== ЦЕНА И КОНТАКТЫ ===== -->
 <section class="section" id="contact">
-    <div class="container">
-        <div class="price-block">
-            <div>
-                <div class="big">🔥 от 9 900 ₽</div>
-                <div class="small">Цена зависит от формата, размера и сложности. <br>Работаем с физическими и юридическими лицами.</div>
-            </div>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <span class="city-badge">📍 Сочи</span>
-                <span class="city-badge">🚚 доставка по РФ</span>
-            </div>
-        </div>
-
-        <div class="contact-grid" style="margin-top: 40px;">
-            <div class="contact-item">
-                <span class="label">📞 Позвоните или напишите</span>
-                <div class="value"><a href="tel:+79388772210">+7 938 877-22-10</a></div>
-                <div style="color: #b8b0a4; font-size: 16px;">WhatsApp, Telegram, звонок</div>
-            </div>
-            <div class="contact-item">
-                <span class="label">🏠 Производство</span>
-                <div class="value">г. Сочи, ул. Промышленная, 12</div>
-                <div style="color: #b8b0a4; font-size: 16px;">Пн–Пт 9:00–19:00, по предварительной договорённости</div>
-            </div>
-            <div class="contact-item" style="grid-column: 1 / -1;">
-                <span class="label">✉️ Для запросов</span>
-                <div class="value" style="font-size: 18px; font-weight: 400;">maksyoman@gmail.com <span style="color: #5a4f40; margin-left: 12px;">или в мессенджеры</span></div>
-            </div>
-        </div>
-
-        <!-- дополнительный блок: творческий подход -->
-        <div style="margin-top: 40px; background: #1e1913; border-radius: 32px; padding: 24px 32px; border: 1px dashed #f5a623; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;">
-            <div>
-                <span style="font-weight: 700; font-size: 20px;">💡 Индивидуальный проект?</span>
-                <span style="color: #b8b0a4; margin-left: 12px;">Пришлите референс — сделаем лучше.</span>
-            </div>
-            <div style="display: flex; gap: 12px;">
-                <span style="background: #2f2a22; padding: 6px 18px; border-radius: 40px; font-size: 14px;">ковка</span>
-                <span style="background: #2f2a22; padding: 6px 18px; border-radius: 40px; font-size: 14px;">литьё</span>
-                <span style="background: #2f2a22; padding: 6px 18px; border-radius: 40px; font-size: 14px;">резка</span>
-            </div>
-        </div>
+  <div class="container">
+    <div class="price-block">
+      <div>
+        <div class="big">🔥 от 15 900 ₽</div>
+        <div class="small">Цена зависит от модели, сложности и отделки. <br>Работаем с физическими и юридическими лицами.</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <span class="city-badge">📍 Сочи</span>
+        <span class="city-badge">🚚 доставка по РФ</span>
+      </div>
     </div>
+    <div class="contact-grid" style="margin-top:40px;">
+      <div class="contact-item">
+        <span class="label">📞 Звоните или пишите</span>
+        <div class="value"><a href="tel:+79388772210">+7 938 877-22-10</a></div>
+        <div style="color:#b8b0a4; font-size:16px;">WhatsApp, Telegram, звонок</div>
+      </div>
+      <div class="contact-item">
+        <span class="label">🏠 Производство</span>
+        <div class="value">г. Сочи, ул. Промышленная, 12</div>
+        <div style="color:#b8b0a4; font-size:16px;">Пн–Пт 9:00–19:00</div>
+      </div>
+      <div class="contact-item" style="grid-column:1/-1;">
+        <span class="label">✉️ Для запросов</span>
+        <div class="value" style="font-size:18px; font-weight:400;">maksyoman@gmail.com <span style="color:#5a4f40; margin-left:12px;">или в мессенджеры</span></div>
+      </div>
+    </div>
+    <div style="margin-top:40px; background:#1e1913; border-radius:32px; padding:24px 32px; border:1px dashed #f5a623; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
+      <div>
+        <span style="font-weight:700; font-size:20px;">💡 Индивидуальный проект?</span>
+        <span style="color:#b8b0a4; margin-left:12px;">Пришлите референс – воплотим в металле.</span>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <span style="background:#2f2a22; padding:6px 18px; border-radius:40px; font-size:14px;">ковка</span>
+        <span style="background:#2f2a22; padding:6px 18px; border-radius:40px; font-size:14px;">литьё</span>
+        <span style="background:#2f2a22; padding:6px 18px; border-radius:40px; font-size:14px;">резка</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== ФОРМА ЗАКАЗА ===== -->
 <section class="section" id="order">
-    <div class="container">
-        <h2 class="section-title">Оформить <span>заказ</span></h2>
-        <p class="section-sub">Заполните форму, и мы свяжемся с вами в удобном мессенджере. Или напишите напрямую в Telegram.</p>
-
-        <div class="order-form">
-            <form id="orderForm" onsubmit="sendOrder(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Ваше имя</label>
-                        <input type="text" id="name" placeholder="Алексей" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Телефон</label>
-                        <input type="tel" id="phone" placeholder="+7 938 877-22-10" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="format">Предпочтительный формат</label>
-                        <select id="format">
-                            <option value="Классика">Классика</option>
-                            <option value="Модерн">Модерн</option>
-                            <option value="Эко-стиль">Эко-стиль</option>
-                            <option value="Минимал">Минимал</option>
-                            <option value="Индивидуальный">Индивидуальный проект</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactMethod">Удобный способ связи</label>
-                        <select id="contactMethod">
-                            <option value="Telegram">Telegram</option>
-                            <option value="WhatsApp">WhatsApp</option>
-                            <option value="Звонок">Звонок</option>
-                            <option value="Email">Email</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group form-full">
-                        <label for="message">Комментарий / пожелания</label>
-                        <textarea id="message" placeholder="Расскажите, что вы хотите: размер, цвет, особые детали..."></textarea>
-                    </div>
-                </div>
-
-                <!-- ЧЕКБОКС СОГЛАСИЯ -->
-                <div class="checkbox-group">
-                    <input type="checkbox" id="agreeCheckbox" onchange="toggleSubmitButton()">
-                    <label for="agreeCheckbox">
-                        <span class="required-star">*</span> 
-                        Нажимая «Отправить», вы соглашаетесь на 
-                        <a href="#" onclick="alert('Политика конфиденциальности: ваши данные используются только для связи с вами и не передаются третьим лицам.'); return false;">обработку персональных данных</a>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-submit" id="submitBtn">🚀 Отправить заказ</button>
-                <div class="form-hint">
-                    Поставьте галочку, чтобы активировать кнопку отправки
-                </div>
-            </form>
-
-            <!-- Прямая ссылка на Telegram -->
-            <div style="margin-top: 28px; border-top: 1px solid #2f2a22; padding-top: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px;">
-                <div>
-                    <div style="font-weight: 600; font-size: 18px; margin-bottom: 4px;">📱 Напишите нам в Telegram</div>
-                    <div style="color: #b8b0a4;">Быстрый ответ, удобный чат, можно отправить фото или эскиз</div>
-                </div>
-                <a href="https://t.me/chashi_sochi" target="_blank" class="telegram-btn" style="display: inline-flex; align-items: center; gap: 10px; background: #1e1913; border: 1px solid #2f2a22; border-radius: 40px; padding: 10px 24px; color: #f0ebe3; text-decoration: none; font-weight: 600; transition: 0.2s;">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                    @chashi_sochi
-                </a>
-            </div>
+  <div class="container">
+    <h2 class="section-title">Оформить <span>заказ</span></h2>
+    <p class="section-sub">Заполните форму, и мы подберём идеальный очаг под ваш интерьер.</p>
+    <div class="order-form">
+      <form id="orderForm" onsubmit="sendOrder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" placeholder="Алексей" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" placeholder="+7 938 877-22-10" required />
+          </div>
         </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="format">Модель</label>
+            <select id="format">
+              <option value="Викторианский">Викторианский</option>
+              <option value="Колониальный">Колониальный</option>
+              <option value="Ремесленник">Ремесленник</option>
+              <option value="Пустота">Пустота</option>
+              <option value="Линня">Линня</option>
+              <option value="Диск">Диск</option>
+              <option value="Индивидуальный">Индивидуальный проект</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMethod">Способ связи</label>
+            <select id="contactMethod">
+              <option value="Telegram">Telegram</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Звонок">Звонок</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-full">
+            <label for="message">Комментарий / пожелания</label>
+            <textarea id="message" placeholder="Размер, отделка, особые детали..."></textarea>
+          </div>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="agreeCheckbox" onchange="toggleSubmitButton()" />
+          <label for="agreeCheckbox">
+            <span class="required-star">*</span>
+            Нажимая «Отправить», вы соглашаетесь на
+            <a href="#" onclick="openModal(); return false;">обработку персональных данных</a>
+          </label>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">🚀 Отправить заказ</button>
+        <div class="form-hint">Поставьте галочку, чтобы активировать кнопку отправки</div>
+      </form>
+      <div style="margin-top:28px; border-top:1px solid #2f2a22; padding-top:28px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px;">
+        <div>
+          <div style="font-weight:600; font-size:18px; margin-bottom:4px;">📱 Напишите нам в Telegram</div>
+          <div style="color:#b8b0a4;">Быстрый ответ, можно прислать фото или эскиз</div>
+        </div>
+        <a href="https://t.me/ochag_i_dom" target="_blank" class="telegram-btn">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          @ochag_i_dom
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Footer -->
+<!-- ===== ФУТЕР ===== -->
 <footer class="footer">
-    <div class="container">
-        <p>© 2026 ЧАШИ СОЧИ — производство костровых чаш в Сочи. <br> Сделано с огнём и вниманием к деталям.</p>
-        <p style="margin-top: 8px; color: #3f372b;">телефон: <a href="tel:+79388772210" style="color: #b8b0a4; text-decoration: none;">+7 938 877-22-10</a></p>
-    </div>
+  <div class="container">
+    <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали в Сочи.</p>
+    <p style="margin-top:8px; color:#3f372b;">телефон: <a href="tel:+79388772210" style="color:#b8b0a4; text-decoration:none;">+7 938 877-22-10</a></p>
+  </div>
 </footer>
 
+<!-- ===== МОДАЛЬНОЕ ОКНО (ПОЛИТИКА) ===== -->
+<div class="modal-overlay" id="privacyModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2>Политика конфиденциальности</h2>
+    <p><strong>Настоящая Политика</strong> действует в отношении всей информации, которую сайт <span class="highlight">«ОЧАГ И ДОМ»</span> может получить о Пользователе.</p>
+    <h3>1. Определения</h3>
+    <ul>
+      <li><strong>Сайт</strong> – совокупность материалов по адресу <span class="highlight">https://igorvseznaut.github.io/kostrovye-chashi/</span>.</li>
+      <li><strong>Персональные данные</strong> – имя, номер телефона, email, которые пользователь указывает в форме заказа.</li>
+    </ul>
+    <h3>2. Сбор и использование</h3>
+    <p>Сайт собирает данные исключительно для обработки заказов и связи с клиентом. Данные не передаются третьим лицам.</p>
+    <h3>3. Правовые основания</h3>
+    <p>Обработка осуществляется на основании <span class="highlight">152-ФЗ</span> и согласия пользователя (галочка в форме).</p>
+    <h3>4. Контакты</h3>
+    <p>Телефон: <span class="highlight">+7 938 877-22-10</span>, email: <span class="highlight">maksyoman@gmail.com</span></p>
+    <p style="margin-top:20px; color:#5a4f40; font-size:14px;">Дата публикации: <strong>13 августа 2026 г.</strong></p>
+  </div>
+</div>
+
 <script>
-    // Функция для активации/деактивации кнопки отправки
-    function toggleSubmitButton() {
-        const checkbox = document.getElementById('agreeCheckbox');
-        const submitBtn = document.getElementById('submitBtn');
-        
-        if (checkbox.checked) {
-            submitBtn.classList.add('active');
-        } else {
-            submitBtn.classList.remove('active');
-        }
+  // ===== Модальное окно =====
+  function openModal() {
+    document.getElementById('privacyModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('privacyModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('privacyModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ===== Чекбокс =====
+  function toggleSubmitButton() {
+    const checkbox = document.getElementById('agreeCheckbox');
+    const submitBtn = document.getElementById('submitBtn');
+    checkbox.checked ? submitBtn.classList.add('active') : submitBtn.classList.remove('active');
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submitBtn').classList.remove('active');
+  });
+
+  // ===== ОТПРАВКА ЗАКАЗА (С ИСПРАВЛЕННОЙ ЛОГИКОЙ ОТКРЫТИЯ МЕССЕНДЖЕРОВ) =====
+  function sendOrder(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const format = document.getElementById('format').value;
+    const contactMethod = document.getElementById('contactMethod').value;
+    const message = document.getElementById('message').value.trim();
+    const checkbox = document.getElementById('agreeCheckbox');
+
+    if (!checkbox.checked) {
+      alert('Пожалуйста, согласитесь на обработку данных.');
+      return;
+    }
+    if (!name || !phone) {
+      alert('Заполните имя и телефон.');
+      return;
     }
 
-    // При загрузке страницы кнопка неактивна
-    document.addEventListener('DOMContentLoaded', function() {
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.classList.remove('active');
+    // Формируем сообщение
+    const msg = `🔥 НОВЫЙ ЗАКАЗ ОЧАГА 🔥\n\n` +
+                `👤 Имя: ${name}\n` +
+                `📞 Телефон: ${phone}\n` +
+                `📐 Модель: ${format}\n` +
+                `💬 Способ связи: ${contactMethod}\n` +
+                `📝 Комментарий: ${message || '—'}\n\n` +
+                `📍 Производство Сочи`;
+
+    // Telegram-бот
+    const botToken = '8946175502:AAHWqZU3zvveieY59kF9PIXoBZiSp8oOITo';
+    const chatId = '772431991';
+    const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+    // Отправка в бота
+    fetch(telegramUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'HTML' })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Ошибка отправки в Telegram');
+      return response.json();
+    })
+    .then(() => {
+      // ===== УСПЕШНАЯ ОТПРАВКА – ОТКРЫВАЕМ ВЫБРАННЫЙ МЕССЕНДЖЕР =====
+      openMessenger(contactMethod);
+      alert('✅ Заказ отправлен! Мы свяжемся с вами.');
+      document.getElementById('orderForm').reset();
+      document.getElementById('agreeCheckbox').checked = false;
+      document.getElementById('submitBtn').classList.remove('active');
+    })
+    .catch(error => {
+      console.error('Ошибка отправки в бота:', error);
+      // Если бот не сработал – всё равно открываем мессенджер
+      openMessenger(contactMethod);
+      alert('✅ Заказ отправлен на почту! Мы свяжемся с вами.');
+      document.getElementById('orderForm').reset();
+      document.getElementById('agreeCheckbox').checked = false;
+      document.getElementById('submitBtn').classList.remove('active');
     });
+  }
 
-    // Функция отправки заказа
-    function sendOrder(e) {
-        e.preventDefault();
+  // ===== ФУНКЦИЯ ОТКРЫТИЯ НУЖНОГО МЕССЕНДЖЕРА =====
+  function openMessenger(method) {
+    const phoneNumber = '79388772210'; // номер без + (для WhatsApp)
+    const tgUsername = 'ochag_i_dom';   // ваш Telegram username
 
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const format = document.getElementById('format').value;
-        const contactMethod = document.getElementById('contactMethod').value;
-        const message = document.getElementById('message').value.trim();
-        const checkbox = document.getElementById('agreeCheckbox');
-
-        // Проверка, что чекбокс отмечен
-        if (!checkbox.checked) {
-            alert('Пожалуйста, согласитесь на обработку персональных данных.');
-            return;
-        }
-
-        if (!name || !phone) {
-            alert('Пожалуйста, заполните имя и телефон.');
-            return;
-        }
-
-        // Формируем текст сообщения
-        const msg = `🔥 НОВЫЙ ЗАКАЗ КОСТРОВОЙ ЧАШИ 🔥\n\n` +
-                    `👤 Имя: ${name}\n` +
-                    `📞 Телефон: ${phone}\n` +
-                    `📐 Формат: ${format}\n` +
-                    `💬 Способ связи: ${contactMethod}\n` +
-                    `📝 Комментарий: ${message || '—'}\n\n` +
-                    `📍 Производство Сочи`;
-
-        // ===== ВАШИ ДАННЫЕ ДЛЯ TELEGRAM =====
-        const botToken = '8946175502:AAHWqZU3zvveieY59kF9PIXoBZiSp8oOITo';
-        const chatId = '772431991';
-        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-        // Отправляем запрос в Telegram
-        fetch(telegramUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: msg,
-                parse_mode: 'HTML'
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Ошибка отправки в Telegram');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Telegram ответ:', data);
-            // Дополнительно открываем почтовый клиент
-            const subject = encodeURIComponent('Заказ костровой чаши');
-            const body = encodeURIComponent(msg.replace(/\n/g, '\n'));
-            const mailtoLink = `mailto:maksyoman@gmail.com?subject=${subject}&body=${body}`;
-            window.open(mailtoLink, '_blank');
-
-            alert('✅ Заказ отправлен! Мы свяжемся с вами в ближайшее время.');
-            document.getElementById('orderForm').reset();
-            // Сбрасываем чекбокс и деактивируем кнопку
-            document.getElementById('agreeCheckbox').checked = false;
-            document.getElementById('submitBtn').classList.remove('active');
-        })
-        .catch(error => {
-            console.error('Ошибка:', error);
-            // Если Telegram не доступен, открываем почту
-            const subject = encodeURIComponent('Заказ костровой чаши');
-            const body = encodeURIComponent(msg.replace(/\n/g, '\n'));
-            const mailtoLink = `mailto:maksyoman@gmail.com?subject=${subject}&body=${body}`;
-            window.open(mailtoLink, '_blank');
-            alert('✅ Заказ отправлен на почту! Мы свяжемся с вами в ближайшее время.');
-            document.getElementById('orderForm').reset();
-            document.getElementById('agreeCheckbox').checked = false;
-            document.getElementById('submitBtn').classList.remove('active');
-        });
+    switch (method) {
+      case 'Telegram':
+        // Открываем Telegram (через https или tg://)
+        window.open(`https://t.me/${tgUsername}`, '_blank');
+        break;
+      case 'WhatsApp':
+        window.open(`https://wa.me/${phoneNumber}`, '_blank');
+        break;
+      case 'Email':
+        // Открываем почтовый клиент
+        const subject = encodeURIComponent('Заказ очага');
+        const body = encodeURIComponent('Благодарим за заказ! Мы свяжемся с вами в ближайшее время.');
+        window.open(`mailto:maksyoman@gmail.com?subject=${subject}&body=${body}`, '_blank');
+        break;
+      case 'Звонок':
+        // Ничего не открываем, просто показываем номер (он уже виден на сайте)
+        alert('Наш номер телефона: +7 938 877-22-10. Ждём вашего звонка!');
+        break;
+      default:
+        break;
     }
+  }
 </script>
-
 </body>
 </html>
