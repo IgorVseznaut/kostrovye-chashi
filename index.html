@@ -127,10 +127,20 @@
       line-height: 1.3;
       white-space: nowrap;
     }
+    /* Дополнительный стиль для иконки MAX – светлый фон */
+    .messenger-item .max-icon {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 2px;
+      object-fit: contain;
+      width: 32px;
+      height: 32px;
+    }
     @media (max-width: 480px) {
       .messenger-links { gap: 12px; justify-content: center; }
       .messenger-item { min-width: 60px; }
       .messenger-item .contact-icon { width: 28px; height: 28px; }
+      .messenger-item .max-icon { width: 28px; height: 28px; }
       .messenger-item .messenger-label { font-size: 11px; }
     }
 
@@ -394,9 +404,9 @@
           </div>
           <div class="messenger-item">
             <a href="https://web.max.ru/" target="_blank" title="Мессенджер MAX">
-              <!-- ======= НОВАЯ ИКОНКА MAX (PNG) ======= -->
-              <img class="contact-icon" src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/MAX%20PNG.png" alt="MAX" style="border-radius: 4px; object-fit: contain;" />
-              <!-- ===================================== -->
+              <!-- ======= ИКОНКА MAX С БЕЛЫМ ФОНОМ ======= -->
+              <img class="contact-icon max-icon" src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/MAX%20PNG.png" alt="MAX" />
+              <!-- ========================================= -->
             </a>
             <span class="messenger-label">MAX (web.max.ru)</span>
           </div>
