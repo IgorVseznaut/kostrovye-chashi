@@ -4,14 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Очаги из ЗММ стали | Металлоизделия ОЧАГ И ДОМ</title>
-  
-  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  
   <style>
-    /* ===== БАЗОВЫЕ СТИЛИ ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #0b0a07; color: #f0ebe3; line-height: 1.5; scroll-behavior: smooth; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -26,11 +22,47 @@
     .logo-text span { color: #f0ebe3; }
     .logo-sub { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #b8b0a4; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
     .logo-wrapper { display: flex; flex-direction: column; line-height: 1; }
+
+    /* ===== НАВИГАЦИЯ (обновлена) ===== */
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: #b8b0a4;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(184, 176, 164, 0.25);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #f5a623;
+      border-bottom-color: rgba(245, 166, 35, 0.5);
+    }
+    .nav-links a.active {
+      color: #f5a623;
+      border-bottom-color: #f5a623;
+    }
+
     .header-phone { font-weight: 600; font-size: 20px; color: #f0ebe3; text-decoration: none; border: 1px solid #f5a623; padding: 8px 20px; border-radius: 40px; transition: 0.2s; display: inline-block; }
     .header-phone:hover { background: #f5a623; color: #0b0a07; }
 
-    /* ===== ГЕРОЙ ===== */
-    .hero { padding: 60px 0 80px; background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%); border-bottom: 1px solid #2f2a22; }
+    /* ===== ГЕРОЙ с параллаксом ===== */
+    .hero {
+      padding: 60px 0 80px;
+      background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%);
+      background-attachment: fixed;
+      background-size: cover;
+      border-bottom: 1px solid #2f2a22;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 768px) { .hero { background-attachment: scroll; } }
+
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .hero-title { font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
     .hero-title span { color: #f5a623; }
@@ -65,7 +97,16 @@
     .product-card .material { font-size: 13px; color: #5a4f40; margin-top: 8px; padding-top: 8px; border-top: 1px solid #2f2a22; width: 100%; }
     .product-card .material span { color: #f5a623; font-weight: 600; }
 
-    /* ===== ПРЕИМУЩЕСТВА ===== */
+    /* ===== ПРЕИМУЩЕСТВА с параллаксом ===== */
+    .advantages-section {
+      background: radial-gradient(circle at 80% 20%, #1f1a13, #0b0a07 70%);
+      background-attachment: fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 768px) { .advantages-section { background-attachment: scroll; } }
+
     .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 12px; }
     .advantage-item { display: flex; gap: 16px; align-items: flex-start; }
     .advantage-item .num { font-size: 32px; font-weight: 800; color: #f5a623; min-width: 44px; }
@@ -84,7 +125,6 @@
     .contact-item { display: flex; flex-direction: column; gap: 8px; }
     .contact-item .label { color: #b8b0a4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
 
-    /* ===== СТИЛИ ДЛЯ МЕССЕНДЖЕРОВ (исправленное выравнивание) ===== */
     .messenger-links {
       display: flex;
       gap: 24px;
@@ -118,16 +158,13 @@
       transition: color 0.2s;
       line-height: 0;
     }
-    .messenger-item a:hover .contact-icon {
-      color: #f5a623;
-    }
+    .messenger-item a:hover .contact-icon { color: #f5a623; }
     .messenger-item .messenger-label {
       font-size: 13px;
       color: #b8b0a4;
       line-height: 1.3;
       white-space: nowrap;
     }
-    /* Дополнительный стиль для иконки MAX – светлый фон */
     .messenger-item .max-icon {
       background: #ffffff;
       border-radius: 6px;
@@ -215,6 +252,7 @@
       .logo-icon { width: 32px; height: 32px; }
       .products-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
       .messenger-links { justify-content: center; }
+      .nav-links { justify-content: center; gap: 24px; }
     }
     @media (max-width: 480px) {
       .header-inner { flex-direction: column; align-items: stretch; text-align: center; }
@@ -232,6 +270,8 @@
       .products-grid { grid-template-columns: 1fr; }
       .contact-item .value { font-size: 18px; }
       .messenger-item .contact-icon { width: 28px; height: 28px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 14px; }
     }
   </style>
 </head>
@@ -253,6 +293,12 @@
         <div class="logo-sub">🔥 Металлоизделия</div>
       </div>
     </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Главная</a>
+      <a href="index.html#catalog">Каталог</a>
+      <a href="index.html#contact">Контакты</a>
+      <a href="blog.html">Блог</a>
+    </div>
     <a href="https://t.me/MAKS_YOMAN" target="_blank" class="header-phone">+7 938 877-22-10</a>
   </div>
 </header>
@@ -278,14 +324,12 @@
       </div>
     </div>
     <div class="hero-image">
-      <!-- ======= ВАША КАРТИНКА ======= -->
       <img src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F%20%D1%87%D0%B0%D1%88%D0%B0.png" alt="Очаг из ЗММ стали" />
-      <!-- ============================= -->
     </div>
   </div>
 </section>
 
-<!-- ===== КОЛЛЕКЦИИ ===== -->
+<!-- ===== КАТАЛОГ ===== -->
 <section class="section" id="catalog">
   <div class="container">
     <h2 class="section-title">Наши <span>коллекции</span></h2>
@@ -344,7 +388,7 @@
 </section>
 
 <!-- ===== ПРЕИМУЩЕСТВА ===== -->
-<section class="section">
+<section class="section advantages-section">
   <div class="container">
     <h2 class="section-title">Почему <span>выбирают</span> нас</h2>
     <div class="advantage-grid">
@@ -371,7 +415,7 @@
   </div>
 </section>
 
-<!-- ===== ЦЕНА И КОНТАКТЫ ===== -->
+<!-- ===== КОНТАКТЫ ===== -->
 <section class="section" id="contact">
   <div class="container">
     <div class="price-block">
@@ -384,11 +428,9 @@
         <span class="city-badge">🚚 доставка по РФ</span>
       </div>
     </div>
-    
     <div class="contact-grid" style="margin-top:40px;">
       <div class="contact-item">
         <span class="label">📞 Звоните или пишите</span>
-        <!-- МЕССЕНДЖЕРЫ (ВЫРОВНЕННЫЕ) -->
         <div class="messenger-links">
           <div class="messenger-item">
             <a href="https://t.me/MAKS_YOMAN" target="_blank" title="Telegram">
@@ -404,11 +446,10 @@
           </div>
           <div class="messenger-item">
             <a href="https://web.max.ru/" target="_blank" title="Мессенджер MAX">
-              <!-- ======= ИКОНКА MAX С БЕЛЫМ ФОНОМ ======= -->
               <img class="contact-icon max-icon" src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/MAX%20PNG.png" alt="MAX" />
-              <!-- ========================================= -->
             </a>
-            <span class="messenger-label">MAX (web.max.ru)</span>
+            <!-- ИСПРАВЛЕНО: убрано (web.max.ru) -->
+            <span class="messenger-label">MAX</span>
           </div>
         </div>
       </div>
@@ -422,7 +463,6 @@
         <div class="value" style="font-size:18px; font-weight:400;">maksyoman@gmail.com <span style="color:#5a4f40; margin-left:12px;">или в мессенджеры</span></div>
       </div>
     </div>
-    
     <div style="margin-top:40px; background:#1e1913; border-radius:32px; padding:24px 32px; border:1px dashed #f5a623; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
       <div>
         <span style="font-weight:700; font-size:20px;">💡 Индивидуальный проект?</span>
@@ -514,12 +554,12 @@
   <div class="container">
     <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали.</p>
     <p style="margin-top:8px; color:#3f372b;">
-      телефон: <a href="https://t.me/MAKS_YOMAN" target="_blank">+7 938 877-22-10</a>
+      <a href="index.html">Главная</a> | <a href="blog.html">Блог</a> | <a href="https://t.me/MAKS_YOMAN" target="_blank">Telegram</a>
     </p>
   </div>
 </footer>
 
-<!-- ===== МОДАЛЬНОЕ ОКНО (ПОЛИТИКА) ===== -->
+<!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
 <div class="modal-overlay" id="privacyModal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -586,7 +626,6 @@
       return;
     }
 
-    // Формируем сообщение
     const msg = `🔥 НОВЫЙ ЗАКАЗ ОЧАГА 🔥\n\n` +
                 `👤 Имя: ${name}\n` +
                 `📞 Телефон: ${phone}\n` +
@@ -595,12 +634,10 @@
                 `📝 Комментарий: ${message || '—'}\n\n` +
                 `📍 Производство`;
 
-    // Telegram-бот
     const botToken = '8946175502:AAHWqZU3zvveieY59kF9PIXoBZiSp8oOITo';
     const chatId = '772431991';
     const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-    // Отправка в бота
     fetch(telegramUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -611,7 +648,6 @@
       return response.json();
     })
     .then(() => {
-      // Успешная отправка – открываем выбранный мессенджер
       openMessenger(contactMethod);
       alert('✅ Заказ отправлен! Мы свяжемся с вами.');
       document.getElementById('orderForm').reset();
@@ -620,7 +656,6 @@
     })
     .catch(error => {
       console.error('Ошибка отправки в бота:', error);
-      // Если бот не сработал – всё равно открываем мессенджер
       openMessenger(contactMethod);
       alert('✅ Заказ отправлен на почту! Мы свяжемся с вами.');
       document.getElementById('orderForm').reset();
@@ -629,11 +664,9 @@
     });
   }
 
-  // ===== ФУНКЦИЯ ОТКРЫТИЯ НУЖНОГО МЕССЕНДЖЕРА =====
   function openMessenger(method) {
     const phoneNumber = '79388772210';
     const tgUsername = 'MAKS_YOMAN';
-
     switch (method) {
       case 'Telegram':
         window.open(`https://t.me/${tgUsername}`, '_blank');
