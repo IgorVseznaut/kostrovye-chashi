@@ -11,10 +11,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   
   <style>
-    /* ===== БАЗОВЫЕ СТИЛИ (без изменений) ===== */
+    /* ===== БАЗОВЫЕ СТИЛИ ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #0b0a07; color: #f0ebe3; line-height: 1.5; scroll-behavior: smooth; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
     /* ===== ХЕДЕР ===== */
     .header { padding: 20px 0; border-bottom: 1px solid #2f2a22; background: #0b0a07; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); background: rgba(11, 10, 7, 0.85); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -52,7 +53,7 @@
     .section-title span { color: #f5a623; }
     .section-sub { color: #b8b0a4; font-size: 18px; max-width: 640px; margin-bottom: 48px; }
 
-    /* ===== КАРТОЧКИ ТОВАРОВ (КОЛЛЕКЦИИ) ===== */
+    /* ===== КАРТОЧКИ ТОВАРОВ ===== */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
     .product-card { background: #16120e; padding: 32px 24px; border-radius: 24px; border: 1px solid #2f2a22; text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; position: relative; }
     .product-card:hover { border-color: #f5a623; transform: translateY(-6px); box-shadow: 0 12px 30px rgba(245, 166, 35, 0.08); }
@@ -82,9 +83,57 @@
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; }
     .contact-item { display: flex; flex-direction: column; gap: 8px; }
     .contact-item .label { color: #b8b0a4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
-    .contact-item .value { font-size: 24px; font-weight: 600; }
-    .contact-item .value a { color: #f0ebe3; text-decoration: none; }
-    .contact-item .value a:hover { color: #f5a623; }
+
+    /* ===== СТИЛИ ДЛЯ МЕССЕНДЖЕРОВ (исправленное выравнивание) ===== */
+    .messenger-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      margin-top: 4px;
+    }
+    .messenger-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 80px;
+      flex: 0 1 auto;
+      text-align: center;
+    }
+    .messenger-item .contact-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: block;
+      transition: color 0.2s;
+    }
+    .messenger-item a {
+      color: #f0ebe3;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+      line-height: 0;
+    }
+    .messenger-item a:hover .contact-icon {
+      color: #f5a623;
+    }
+    .messenger-item .messenger-label {
+      font-size: 13px;
+      color: #b8b0a4;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    @media (max-width: 480px) {
+      .messenger-links { gap: 12px; justify-content: center; }
+      .messenger-item { min-width: 60px; }
+      .messenger-item .contact-icon { width: 28px; height: 28px; }
+      .messenger-item .messenger-label { font-size: 11px; }
+    }
+
     .city-badge { background: #2f2a22; padding: 4px 16px; border-radius: 40px; font-weight: 600; display: inline-block; font-size: 14px; color: #f5a623; }
     .footer { padding: 32px 0; text-align: center; color: #5a4f40; font-size: 14px; border-top: 1px solid #2f2a22; }
     .footer a { color: #b8b0a4; text-decoration: none; }
@@ -155,6 +204,7 @@
       .logo-text { font-size: 24px; }
       .logo-icon { width: 32px; height: 32px; }
       .products-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .messenger-links { justify-content: center; }
     }
     @media (max-width: 480px) {
       .header-inner { flex-direction: column; align-items: stretch; text-align: center; }
@@ -170,6 +220,8 @@
       .logo-icon { width: 28px; height: 28px; }
       .logo-sub { font-size: 8px; letter-spacing: 1px; }
       .products-grid { grid-template-columns: 1fr; }
+      .contact-item .value { font-size: 18px; }
+      .messenger-item .contact-icon { width: 28px; height: 28px; }
     }
   </style>
 </head>
@@ -188,10 +240,9 @@
       </svg>
       <div class="logo-wrapper">
         <div class="logo-text">ОЧАГ <span>И ДОМ</span></div>
-        <div class="logo-sub">🔥 Металлоизделия | Сочи</div>
+        <div class="logo-sub">🔥 Металлоизделия</div>
       </div>
     </a>
-    <!-- Номер телефона теперь ведёт в Telegram -->
     <a href="https://t.me/MAKS_YOMAN" target="_blank" class="header-phone">+7 938 877-22-10</a>
   </div>
 </header>
@@ -201,7 +252,10 @@
   <div class="container hero-grid">
     <div>
       <h1 class="hero-title">Очаги из <span>ЗММ стали</span> для вашего дома</h1>
-      <p class="hero-desc">Собственное производство в Сочи. Коллекции от классики до минимализма. Ручная работа, толщина стали 3 мм, индивидуальный дизайн.</p>
+      <p class="hero-desc">
+        Собственное производство. Коллекции от классики до минимализма. 
+        Ручная работа, толщина стали 3 мм, индивидуальный дизайн.
+      </p>
       <ul class="hero-features">
         <li>🔥 ЗММ сталь 3 мм</li>
         <li>🎨 Любые стили</li>
@@ -214,7 +268,9 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="https://via.placeholder.com/600x400/1a1a1a/f5a623?text=Очаг+из+стали" alt="Очаг из ЗММ стали" />
+      <!-- ======= ВАША КАРТИНКА ======= -->
+      <img src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F%20%D1%87%D0%B0%D1%88%D0%B0.png" alt="Очаг из ЗММ стали" />
+      <!-- ============================= -->
     </div>
   </div>
 </section>
@@ -297,7 +353,7 @@
     </div>
     <div class="creative-block" style="margin-top:48px;">
       <div>
-        <h3>🎨 Собственное производство в Сочи</h3>
+        <h3>🎨 Собственное производство</h3>
         <p>Полный цикл: от разработки до финальной обработки. Сроки от 7 дней, честные цены без посредников.</p>
       </div>
       <div class="creative-tag">#качествогарантируем</div>
@@ -318,11 +374,33 @@
         <span class="city-badge">🚚 доставка по РФ</span>
       </div>
     </div>
+    
     <div class="contact-grid" style="margin-top:40px;">
       <div class="contact-item">
         <span class="label">📞 Звоните или пишите</span>
-        <div class="value"><a href="tel:+79388772210">+7 938 877-22-10</a></div>
-        <div style="color:#b8b0a4; font-size:16px;">WhatsApp, Telegram, звонок</div>
+        <!-- МЕССЕНДЖЕРЫ (ВЫРОВНЕННЫЕ) -->
+        <div class="messenger-links">
+          <div class="messenger-item">
+            <a href="https://t.me/MAKS_YOMAN" target="_blank" title="Telegram">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </a>
+            <span class="messenger-label">Telegram</span>
+          </div>
+          <div class="messenger-item">
+            <a href="https://wa.me/79388772210" target="_blank" title="WhatsApp">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <span class="messenger-label">WhatsApp</span>
+          </div>
+          <div class="messenger-item">
+            <a href="https://web.max.ru/" target="_blank" title="Мессенджер MAX">
+              <!-- ======= НОВАЯ ИКОНКА MAX (PNG) ======= -->
+              <img class="contact-icon" src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/MAX%20PNG.png" alt="MAX" style="border-radius: 4px; object-fit: contain;" />
+              <!-- ===================================== -->
+            </a>
+            <span class="messenger-label">MAX (web.max.ru)</span>
+          </div>
+        </div>
       </div>
       <div class="contact-item">
         <span class="label">🏠 Производство</span>
@@ -334,6 +412,7 @@
         <div class="value" style="font-size:18px; font-weight:400;">maksyoman@gmail.com <span style="color:#5a4f40; margin-left:12px;">или в мессенджеры</span></div>
       </div>
     </div>
+    
     <div style="margin-top:40px; background:#1e1913; border-radius:32px; padding:24px 32px; border:1px dashed #f5a623; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
       <div>
         <span style="font-weight:700; font-size:20px;">💡 Индивидуальный проект?</span>
@@ -383,6 +462,7 @@
             <select id="contactMethod">
               <option value="Telegram">Telegram</option>
               <option value="WhatsApp">WhatsApp</option>
+              <option value="MAX">MAX</option>
               <option value="Звонок">Звонок</option>
               <option value="Email">Email</option>
             </select>
@@ -422,7 +502,7 @@
 <!-- ===== ФУТЕР ===== -->
 <footer class="footer">
   <div class="container">
-    <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали в Сочи.</p>
+    <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали.</p>
     <p style="margin-top:8px; color:#3f372b;">
       телефон: <a href="https://t.me/MAKS_YOMAN" target="_blank">+7 938 877-22-10</a>
     </p>
@@ -503,7 +583,7 @@
                 `📐 Модель: ${format}\n` +
                 `💬 Способ связи: ${contactMethod}\n` +
                 `📝 Комментарий: ${message || '—'}\n\n` +
-                `📍 Производство Сочи`;
+                `📍 Производство`;
 
     // Telegram-бот
     const botToken = '8946175502:AAHWqZU3zvveieY59kF9PIXoBZiSp8oOITo';
@@ -541,8 +621,8 @@
 
   // ===== ФУНКЦИЯ ОТКРЫТИЯ НУЖНОГО МЕССЕНДЖЕРА =====
   function openMessenger(method) {
-    const phoneNumber = '79388772210'; // номер без + (для WhatsApp)
-    const tgUsername = 'MAKS_YOMAN';    // ваш Telegram username (НОВЫЙ)
+    const phoneNumber = '79388772210';
+    const tgUsername = 'MAKS_YOMAN';
 
     switch (method) {
       case 'Telegram':
@@ -550,6 +630,9 @@
         break;
       case 'WhatsApp':
         window.open(`https://wa.me/${phoneNumber}`, '_blank');
+        break;
+      case 'MAX':
+        window.open('https://web.max.ru/', '_blank');
         break;
       case 'Email':
         const subject = encodeURIComponent('Заказ очага');
