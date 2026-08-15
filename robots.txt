@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://igorvseznaut.github.io/kostrovye-chashi/sitemap.xml
