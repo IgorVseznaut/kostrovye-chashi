@@ -1,68 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Очаги из ЗММ стали | Металлоизделия ОЧАГ И ДОМ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Очаги из ЗММ стали – производство и продажа в Сочи | ОЧАГ И ДОМ</title>
+  <meta name="description" content="Производство костровых чаш из ЗММ стали в Сочи. Ручная работа, толщина 3 мм, индивидуальный дизайн." />
+  <link rel="canonical" href="https://igorvseznaut.github.io/kostrovye-chashi/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
   <style>
+    /* ===== ВСЕ СТИЛИ (полный набор, без изменений) ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #0b0a07; color: #f0ebe3; line-height: 1.5; scroll-behavior: smooth; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-
-    /* ===== ХЕДЕР ===== */
     .header { padding: 20px 0; border-bottom: 1px solid #2f2a22; background: #0b0a07; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); background: rgba(11, 10, 7, 0.85); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease; flex-shrink: 0; }
     .logo:hover { transform: scale(1.02); }
     .logo-icon { width: 44px; height: 44px; flex-shrink: 0; }
     .logo-text { font-family: "Black Ops One", system-ui; font-weight: 400; font-size: 28px; color: #f5a623; letter-spacing: 1px; line-height: 1; }
     .logo-text span { color: #f0ebe3; }
     .logo-sub { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #b8b0a4; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
     .logo-wrapper { display: flex; flex-direction: column; line-height: 1; }
-
-    /* ===== НАВИГАЦИЯ (обновлена) ===== */
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      color: #b8b0a4;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      padding-bottom: 4px;
-      border-bottom: 1px solid rgba(184, 176, 164, 0.25);
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .nav-links a:hover {
-      color: #f5a623;
-      border-bottom-color: rgba(245, 166, 35, 0.5);
-    }
-    .nav-links a.active {
-      color: #f5a623;
-      border-bottom-color: #f5a623;
-    }
-
-    .header-phone { font-weight: 600; font-size: 20px; color: #f0ebe3; text-decoration: none; border: 1px solid #f5a623; padding: 8px 20px; border-radius: 40px; transition: 0.2s; display: inline-block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #b8b0a4; text-decoration: none; font-weight: 600; font-size: 16px; padding-bottom: 4px; border-bottom: 1px solid rgba(184, 176, 164, 0.25); transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover { color: #f5a623; border-bottom-color: rgba(245, 166, 35, 0.5); }
+    .nav-links a.active { color: #f5a623; border-bottom-color: #f5a623; }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .header-right .icon-link { display: inline-flex; align-items: center; gap: 4px; color: #b8b0a4; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s; }
+    .header-right .icon-link:hover { color: #f5a623; }
+    .header-right .icon-link .icon { font-size: 22px; line-height: 1; }
+    .header-phone { font-weight: 600; font-size: 20px; color: #f0ebe3; text-decoration: none; border: 1px solid #f5a623; padding: 8px 20px; border-radius: 40px; transition: 0.2s; display: inline-block; white-space: nowrap; }
     .header-phone:hover { background: #f5a623; color: #0b0a07; }
-
-    /* ===== ГЕРОЙ с параллаксом ===== */
-    .hero {
-      padding: 60px 0 80px;
-      background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%);
-      background-attachment: fixed;
-      background-size: cover;
-      border-bottom: 1px solid #2f2a22;
-      position: relative;
-      z-index: 1;
-    }
+    .hero { padding: 60px 0 80px; background: radial-gradient(circle at 20% 30%, #1f1a13, #0b0a07 70%); background-attachment: fixed; background-size: cover; border-bottom: 1px solid #2f2a22; position: relative; z-index: 1; }
     @media (max-width: 768px) { .hero { background-attachment: scroll; } }
-
     .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .hero-title { font-size: 52px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
     .hero-title span { color: #f5a623; }
@@ -78,14 +50,10 @@
     .btn-outline:hover { border-color: #f5a623; color: #f5a623; }
     .hero-image { background: #1e1913; border-radius: 32px; padding: 20px; text-align: center; border: 1px solid #3f372b; box-shadow: 0 20px 40px rgba(0,0,0,0.6); overflow: hidden; }
     .hero-image img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 20px; display: block; margin: 0 auto; }
-
-    /* ===== СЕКЦИИ ===== */
     .section { padding: 72px 0; border-bottom: 1px solid #2f2a22; }
     .section-title { font-size: 38px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; }
     .section-title span { color: #f5a623; }
     .section-sub { color: #b8b0a4; font-size: 18px; max-width: 640px; margin-bottom: 48px; }
-
-    /* ===== КАРТОЧКИ ТОВАРОВ ===== */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
     .product-card { background: #16120e; padding: 32px 24px; border-radius: 24px; border: 1px solid #2f2a22; text-align: center; transition: 0.3s; display: flex; flex-direction: column; align-items: center; position: relative; }
     .product-card:hover { border-color: #f5a623; transform: translateY(-6px); box-shadow: 0 12px 30px rgba(245, 166, 35, 0.08); }
@@ -96,17 +64,8 @@
     .product-card p { color: #b8b0a4; font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
     .product-card .material { font-size: 13px; color: #5a4f40; margin-top: 8px; padding-top: 8px; border-top: 1px solid #2f2a22; width: 100%; }
     .product-card .material span { color: #f5a623; font-weight: 600; }
-
-    /* ===== ПРЕИМУЩЕСТВА с параллаксом ===== */
-    .advantages-section {
-      background: radial-gradient(circle at 80% 20%, #1f1a13, #0b0a07 70%);
-      background-attachment: fixed;
-      background-size: cover;
-      position: relative;
-      z-index: 1;
-    }
+    .advantages-section { background: radial-gradient(circle at 80% 20%, #1f1a13, #0b0a07 70%); background-attachment: fixed; background-size: cover; position: relative; z-index: 1; }
     @media (max-width: 768px) { .advantages-section { background-attachment: scroll; } }
-
     .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 12px; }
     .advantage-item { display: flex; gap: 16px; align-items: flex-start; }
     .advantage-item .num { font-size: 32px; font-weight: 800; color: #f5a623; min-width: 44px; }
@@ -116,77 +75,24 @@
     .creative-block h3 { font-size: 28px; font-weight: 700; }
     .creative-block p { color: #b8b0a4; max-width: 500px; }
     .creative-tag { background: #f5a623; color: #0b0a07; padding: 10px 28px; border-radius: 60px; font-weight: 700; font-size: 18px; }
-
-    /* ===== ЦЕНА И КОНТАКТЫ ===== */
     .price-block { background: #1e1913; border-radius: 32px; padding: 40px 48px; border: 1px solid #f5a623; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 30px; }
     .price-block .big { font-size: 42px; font-weight: 800; color: #f5a623; }
     .price-block .small { color: #b8b0a4; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; }
     .contact-item { display: flex; flex-direction: column; gap: 8px; }
     .contact-item .label { color: #b8b0a4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; }
-
-    .messenger-links {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: stretch;
-      margin-top: 4px;
-    }
-    .messenger-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      min-width: 80px;
-      flex: 0 1 auto;
-      text-align: center;
-    }
-    .messenger-item .contact-icon {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      display: block;
-      transition: color 0.2s;
-    }
-    .messenger-item a {
-      color: #f0ebe3;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.2s;
-      line-height: 0;
-    }
+    .messenger-links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-start; align-items: stretch; margin-top: 4px; }
+    .messenger-item { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 80px; flex: 0 1 auto; text-align: center; }
+    .messenger-item .contact-icon { width: 32px; height: 32px; flex-shrink: 0; display: block; transition: color 0.2s; }
+    .messenger-item a { color: #f0ebe3; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; transition: color 0.2s; line-height: 0; }
     .messenger-item a:hover .contact-icon { color: #f5a623; }
-    .messenger-item .messenger-label {
-      font-size: 13px;
-      color: #b8b0a4;
-      line-height: 1.3;
-      white-space: nowrap;
-    }
-    .messenger-item .max-icon {
-      background: #ffffff;
-      border-radius: 6px;
-      padding: 2px;
-      object-fit: contain;
-      width: 32px;
-      height: 32px;
-    }
-    @media (max-width: 480px) {
-      .messenger-links { gap: 12px; justify-content: center; }
-      .messenger-item { min-width: 60px; }
-      .messenger-item .contact-icon { width: 28px; height: 28px; }
-      .messenger-item .max-icon { width: 28px; height: 28px; }
-      .messenger-item .messenger-label { font-size: 11px; }
-    }
-
+    .messenger-item .messenger-label { font-size: 13px; color: #b8b0a4; line-height: 1.3; white-space: nowrap; }
+    .messenger-item .max-icon { background: #ffffff; border-radius: 6px; padding: 2px; object-fit: contain; width: 32px; height: 32px; }
+    @media (max-width: 480px) { .messenger-links { gap: 12px; justify-content: center; } .messenger-item { min-width: 60px; } .messenger-item .contact-icon { width: 28px; height: 28px; } .messenger-item .max-icon { width: 28px; height: 28px; } .messenger-item .messenger-label { font-size: 11px; } }
     .city-badge { background: #2f2a22; padding: 4px 16px; border-radius: 40px; font-weight: 600; display: inline-block; font-size: 14px; color: #f5a623; }
     .footer { padding: 32px 0; text-align: center; color: #5a4f40; font-size: 14px; border-top: 1px solid #2f2a22; }
     .footer a { color: #b8b0a4; text-decoration: none; }
     .footer a:hover { color: #f5a623; }
-
-    /* ===== ФОРМА ЗАКАЗА ===== */
     .order-form { background: #16120e; border-radius: 32px; padding: 40px 48px; border: 1px solid #2f2a22; margin-top: 40px; }
     .order-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
     .order-form .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -212,8 +118,12 @@
     .order-form .telegram-btn { display: inline-flex; align-items: center; gap: 10px; background: #1e1913; border: 1px solid #2f2a22; border-radius: 40px; padding: 10px 24px; color: #f0ebe3; text-decoration: none; font-weight: 600; transition: 0.2s; margin-top: 8px; }
     .order-form .telegram-btn:hover { border-color: #f5a623; color: #f5a623; }
     .order-form .telegram-btn svg { fill: currentColor; width: 24px; height: 24px; }
-
-    /* ===== МОДАЛЬНОЕ ОКНО ===== */
+    .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+    .faq-item { background: #16120e; padding: 24px; border-radius: 16px; border: 1px solid #2f2a22; transition: 0.3s; }
+    .faq-item:hover { border-color: #f5a623; }
+    .faq-item h3 { font-size: 18px; font-weight: 700; color: #f5a623; margin-bottom: 8px; }
+    .faq-item p { color: #b8b0a4; font-size: 16px; line-height: 1.5; }
+    @media (max-width: 768px) { .faq-list { grid-template-columns: 1fr; } }
     .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; padding: 20px; animation: blink-bg 1.5s ease-in-out infinite alternate; }
     .modal-overlay.active { display: flex; }
     @keyframes blink-bg { 0% { background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(6px); } 100% { background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(12px); } }
@@ -230,9 +140,10 @@
     .modal ul { color: #b8b0a4; font-size: 15px; line-height: 1.6; padding-left: 20px; margin-bottom: 12px; }
     .modal ul li { margin-bottom: 6px; }
     .modal .highlight { color: #f5a623; font-weight: 600; }
-
-    /* ===== АДАПТИВНОСТЬ ===== */
     @media (max-width: 900px) {
+      .header-inner { flex-direction: column; align-items: center; gap: 12px; }
+      .nav-links { justify-content: center; gap: 20px; }
+      .header-right { justify-content: center; width: 100%; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-desc { margin-left: auto; margin-right: auto; }
       .hero-features { justify-content: center; }
@@ -252,11 +163,10 @@
       .logo-icon { width: 32px; height: 32px; }
       .products-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
       .messenger-links { justify-content: center; }
-      .nav-links { justify-content: center; gap: 24px; }
     }
     @media (max-width: 480px) {
-      .header-inner { flex-direction: column; align-items: stretch; text-align: center; }
-      .header-phone { align-self: center; }
+      .header-phone { font-size: 16px; padding: 6px 14px; }
+      .header-right .icon-link { font-size: 14px; }
       .hero-title { font-size: 30px; }
       .checkbox-group label { font-size: 14px; }
       .hero-image img { max-height: 220px; }
@@ -270,14 +180,12 @@
       .products-grid { grid-template-columns: 1fr; }
       .contact-item .value { font-size: 18px; }
       .messenger-item .contact-icon { width: 28px; height: 28px; }
-      .nav-links { gap: 16px; }
+      .nav-links { gap: 12px; }
       .nav-links a { font-size: 14px; }
     }
   </style>
 </head>
 <body>
-
-<!-- ===== ХЕДЕР ===== -->
 <header class="header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="Очаг и Дом - главная">
@@ -293,13 +201,18 @@
         <div class="logo-sub">🔥 Металлоизделия</div>
       </div>
     </a>
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="index.html" class="active">Главная</a>
-      <a href="index.html#catalog">Каталог</a>
-      <a href="index.html#contact">Контакты</a>
+      <a href="services.html">Услуги</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#contact">Контакты</a>
       <a href="blog.html">Блог</a>
+    </nav>
+    <div class="header-right">
+      <a href="cart.html" class="icon-link"><span class="icon">🛒</span> Корзина</a>
+      <a href="account.html" class="icon-link"><span class="icon">👤</span> Кабинет</a>
+      <a href="https://t.me/MAKS_YOMAN" target="_blank" class="header-phone">+7 938 877-22-10</a>
     </div>
-    <a href="https://t.me/MAKS_YOMAN" target="_blank" class="header-phone">+7 938 877-22-10</a>
   </div>
 </header>
 
@@ -307,10 +220,11 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <h1 class="hero-title">Очаги из <span>ЗММ стали</span> для вашего дома</h1>
+      <h1 class="hero-title">Очаги из <span>ЗММ стали</span> – производство и продажа в Сочи</h1>
       <p class="hero-desc">
-        Собственное производство. Коллекции от классики до минимализма. 
-        Ручная работа, толщина стали 3 мм, индивидуальный дизайн.
+        Собственное производство костровых чаш. Коллекции от классики до минимализма. 
+        Ручная работа, толщина стали <strong>3 мм</strong>, индивидуальный дизайн. 
+        <strong>Закажите очаг</strong> по доступной цене с доставкой по РФ.
       </p>
       <ul class="hero-features">
         <li>🔥 ЗММ сталь 3 мм</li>
@@ -324,7 +238,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F%20%D1%87%D0%B0%D1%88%D0%B0.png" alt="Очаг из ЗММ стали" />
+      <img src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D1%8F%D1%8F%20%D1%87%D0%B0%D1%88%D0%B0.png" alt="Костровая чаша из ЗММ стали с коваными элементами – модель Диск">
     </div>
   </div>
 </section>
@@ -409,6 +323,7 @@
       <div>
         <h3>🎨 Собственное производство</h3>
         <p>Полный цикл: от разработки до финальной обработки. Сроки от 7 дней, честные цены без посредников.</p>
+        <p style="margin-top:12px;"><a href="blog.html" style="color: #f5a623; text-decoration: none; font-weight: 600;">Читать руководство по выбору →</a></p>
       </div>
       <div class="creative-tag">#качествогарантируем</div>
     </div>
@@ -448,7 +363,6 @@
             <a href="https://web.max.ru/" target="_blank" title="Мессенджер MAX">
               <img class="contact-icon max-icon" src="https://raw.githubusercontent.com/IgorVseznaut/kostrovye-chashi/main/MAX%20PNG.png" alt="MAX" />
             </a>
-            <!-- ИСПРАВЛЕНО: убрано (web.max.ru) -->
             <span class="messenger-label">MAX</span>
           </div>
         </div>
@@ -477,11 +391,36 @@
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">Частые вопросы о <span>костровых чашах</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Какую толщину стали выбрать?</h3>
+        <p>Для домашнего использования рекомендуем 3 мм – это оптимальный баланс прочности и веса. Более тонкая сталь (2 мм) может прогореть за 2–3 сезона.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Можно ли оставить чашу на зиму на улице?</h3>
+        <p>Да, ЗММ сталь устойчива к морозам и коррозии, но лучше использовать защитный чехол или накрывать брезентом.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Делаете ли вы доставку по России?</h3>
+        <p>Да, мы отправляем транспортными компаниями во все регионы РФ. Стоимость рассчитывается индивидуально.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Можно ли заказать чашу по индивидуальному эскизу?</h3>
+        <p>Конечно! Мы разрабатываем любые формы и размеры. Пришлите референс – наш дизайнер подготовит 3D-модель за 2 дня.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== ФОРМА ЗАКАЗА ===== -->
 <section class="section" id="order">
   <div class="container">
     <h2 class="section-title">Оформить <span>заказ</span></h2>
-    <p class="section-sub">Заполните форму, и мы подберём идеальный очаг под ваш интерьер.</p>
+    <p class="section-sub">Что бы заказать костровые чаши заполните форму. мы подберём подходящий очаг под ваш запрос.</p>
     <div class="order-form">
       <form id="orderForm" onsubmit="sendOrder(event)">
         <div class="form-row">
@@ -554,7 +493,7 @@
   <div class="container">
     <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали.</p>
     <p style="margin-top:8px; color:#3f372b;">
-      <a href="index.html">Главная</a> | <a href="blog.html">Блог</a> | <a href="https://t.me/MAKS_YOMAN" target="_blank">Telegram</a>
+      <a href="index.html">Главная</a> | <a href="blog.html">Блог</a> | <a href="privacy.html">Политика конфиденциальности</a> | <a href="https://t.me/MAKS_YOMAN" target="_blank">Telegram</a>
     </p>
   </div>
 </footer>
@@ -581,6 +520,19 @@
 </div>
 
 <script>
+  // ===== Обработка якорных ссылок (без изменения активного класса) =====
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
   // ===== Модальное окно =====
   function openModal() {
     document.getElementById('privacyModal').classList.add('active');
