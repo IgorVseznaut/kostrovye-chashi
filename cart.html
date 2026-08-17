@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Корзина | ОЧАГ И ДОМ</title>
+  <meta name="description" content="Ваша корзина товаров. Оформите заказ на костровые чаши и аксессуары.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Копия стилей из index.html (хедер, футер, общие) ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #0b0a07; color: #f0ebe3; line-height: 1.5; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    .header { padding: 20px 0; border-bottom: 1px solid #2f2a22; background: #0b0a07; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(4px); background: rgba(11, 10, 7, 0.85); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; transition: transform 0.3s ease; flex-shrink: 0; }
+    .logo:hover { transform: scale(1.02); }
+    .logo-icon { width: 44px; height: 44px; flex-shrink: 0; }
+    .logo-text { font-family: "Black Ops One", system-ui; font-weight: 400; font-size: 28px; color: #f5a623; letter-spacing: 1px; line-height: 1; }
+    .logo-text span { color: #f0ebe3; }
+    .logo-sub { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600; color: #b8b0a4; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+    .logo-wrapper { display: flex; flex-direction: column; line-height: 1; }
+    .nav-links { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { color: #b8b0a4; text-decoration: none; font-weight: 600; font-size: 16px; padding-bottom: 4px; border-bottom: 1px solid rgba(184, 176, 164, 0.25); transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover { color: #f5a623; border-bottom-color: rgba(245, 166, 35, 0.5); }
+    .nav-links a.active { color: #f5a623; border-bottom-color: #f5a623; }
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .header-right .icon-link { display: inline-flex; align-items: center; gap: 4px; color: #b8b0a4; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.2s; }
+    .header-right .icon-link:hover { color: #f5a623; }
+    .header-right .icon-link .icon { font-size: 22px; line-height: 1; }
+    .header-phone { font-weight: 600; font-size: 20px; color: #f0ebe3; text-decoration: none; border: 1px solid #f5a623; padding: 8px 20px; border-radius: 40px; transition: 0.2s; display: inline-block; white-space: nowrap; }
+    .header-phone:hover { background: #f5a623; color: #0b0a07; }
+    .footer { padding: 32px 0; text-align: center; color: #5a4f40; font-size: 14px; border-top: 1px solid #2f2a22; margin-top: 40px; }
+    .footer a { color: #b8b0a4; text-decoration: none; }
+    .footer a:hover { color: #f5a623; }
+
+    /* ===== Стили для корзины ===== */
+    .cart-page { padding: 40px 0 60px; }
+    .cart-title { font-size: 38px; font-weight: 800; margin-bottom: 30px; color: #f5a623; }
+    .cart-table { width: 100%; border-collapse: collapse; background: #16120e; border-radius: 16px; overflow: hidden; }
+    .cart-table th { background: #1e1913; color: #f5a623; padding: 16px; text-align: left; font-weight: 700; border-bottom: 1px solid #2f2a22; }
+    .cart-table td { padding: 16px; border-bottom: 1px solid #2f2a22; color: #f0ebe3; vertical-align: middle; }
+    .cart-table .product-info { display: flex; align-items: center; gap: 16px; }
+    .cart-table .product-info img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; background: #0b0a07; border: 1px solid #2f2a22; }
+    .cart-table .product-info .name { font-weight: 600; }
+    .cart-table .qty-input { display: flex; align-items: center; gap: 8px; }
+    .cart-table .qty-input button { background: #0b0a07; border: 1px solid #2f2a22; color: #f0ebe3; width: 30px; height: 30px; border-radius: 6px; cursor: pointer; font-size: 18px; transition: 0.2s; }
+    .cart-table .qty-input button:hover { border-color: #f5a623; color: #f5a623; }
+    .cart-table .qty-input input { width: 50px; text-align: center; background: #0b0a07; border: 1px solid #2f2a22; border-radius: 6px; color: #f0ebe3; padding: 4px; }
+    .cart-table .remove-btn { background: none; border: none; color: #5a4f40; cursor: pointer; font-size: 20px; transition: 0.2s; }
+    .cart-table .remove-btn:hover { color: #e74c3c; }
+    .cart-total { margin-top: 30px; display: flex; justify-content: flex-end; align-items: center; gap: 30px; flex-wrap: wrap; }
+    .cart-total .total-label { font-size: 24px; font-weight: 700; }
+    .cart-total .total-price { font-size: 30px; font-weight: 800; color: #f5a623; }
+    .cart-empty { text-align: center; padding: 60px 0; }
+    .cart-empty .big-icon { font-size: 80px; margin-bottom: 20px; }
+    .cart-empty p { font-size: 20px; color: #b8b0a4; }
+    .btn-checkout { background: #f5a623; color: #0b0a07; padding: 16px 40px; border: none; border-radius: 60px; font-weight: 700; font-size: 20px; cursor: pointer; transition: 0.25s; }
+    .btn-checkout:hover { background: #ffb83d; transform: scale(1.02); box-shadow: 0 8px 24px rgba(245, 166, 35, 0.3); }
+    @media (max-width: 768px) {
+      .cart-table thead { display: none; }
+      .cart-table, .cart-table tbody, .cart-table tr, .cart-table td { display: block; width: 100%; }
+      .cart-table tr { margin-bottom: 16px; background: #16120e; border-radius: 12px; padding: 16px; }
+      .cart-table td { border-bottom: none; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; }
+      .cart-table td:before { content: attr(data-label); font-weight: 600; color: #b8b0a4; }
+      .cart-table .product-info { display: flex; align-items: center; gap: 12px; }
+      .cart-total { flex-direction: column; align-items: flex-end; }
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="Очаг и Дом - главная">
+      <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#f5a623" stroke-width="2"/>
+        <path d="M20 6C15 6 12 11 12 16c0 5 3 8 8 8s8-3 8-8c0-5-3-10-8-10z" fill="#f5a623" opacity="0.9"/>
+        <path d="M9 24 L31 24 L28 32 L12 32 Z" fill="#f5a623" opacity="0.5"/>
+        <rect x="16" y="32" width="8" height="3" rx="1.5" fill="#f5a623" opacity="0.3"/>
+        <path d="M16 14 L20 10 L24 14 L22 18 L18 18 Z" fill="#0b0a07"/>
+      </svg>
+      <div class="logo-wrapper">
+        <div class="logo-text">ОЧАГ <span>И ДОМ</span></div>
+        <div class="logo-sub">🔥 Металлоизделия</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="index.html#catalog">Каталог</a>
+      <a href="index.html#contact">Контакты</a>
+      <a href="blog.html">Блог</a>
+    </nav>
+    <div class="header-right">
+      <a href="cart.html" class="icon-link active"><span class="icon">🛒</span> Корзина</a>
+      <a href="account.html" class="icon-link"><span class="icon">👤</span> Кабинет</a>
+      <a href="https://t.me/MAKS_YOMAN" target="_blank" class="header-phone">+7 938 877-22-10</a>
+    </div>
+  </div>
+</header>
+
+<section class="cart-page">
+  <div class="container">
+    <h1 class="cart-title">🛒 Корзина</h1>
+    <div id="cart-content">
+      <!-- Товары будут отображены через JavaScript -->
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Металлоизделия «ОЧАГ И ДОМ» — производство очагов из ЗММ стали.</p>
+    <p style="margin-top:8px; color:#3f372b;">
+      <a href="index.html">Главная</a> | <a href="blog.html">Блог</a> | <a href="privacy.html">Политика конфиденциальности</a> | <a href="https://t.me/MAKS_YOMAN" target="_blank">Telegram</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // ===== Данные корзины (пример) =====
+  let cartItems = [
+    { id: 1, name: 'Викторианский', price: 25900, qty: 1, img: 'https://via.placeholder.com/60x60/1a1a1a/f5a623?text=В' },
+    { id: 2, name: 'Колониальный', price: 28900, qty: 1, img: 'https://via.placeholder.com/60x60/1a1a1a/f5a623?text=К' },
+    { id: 3, name: 'Диск', price: 15900, qty: 1, img: 'https://via.placeholder.com/60x60/1a1a1a/f5a623?text=Д' }
+  ];
+
+  function renderCart() {
+    const container = document.getElementById('cart-content');
+    if (!cartItems.length) {
+      container.innerHTML = `<div class="cart-empty"><div class="big-icon">🛒</div><p>Ваша корзина пуста. Перейдите в <a href="index.html#catalog" style="color:#f5a623;">каталог</a>, чтобы выбрать очаг.</p></div>`;
+      return;
+    }
+    let html = `<table class="cart-table"><thead><tr><th>Товар</th><th>Цена</th><th>Количество</th><th>Сумма</th><th></th></tr></thead><tbody>`;
+    let total = 0;
+    cartItems.forEach((item, index) => {
+      const sum = item.price * item.qty;
+      total += sum;
+      html += `<tr>
+        <td data-label="Товар"><div class="product-info"><img src="${item.img}" alt="${item.name}"><span class="name">${item.name}</span></div></td>
+        <td data-label="Цена">${item.price.toLocaleString()} ₽</td>
+        <td data-label="Количество"><div class="qty-input">
+          <button onclick="changeQty(${index}, -1)">−</button>
+          <input type="number" value="${item.qty}" min="1" onchange="setQty(${index}, this.value)">
+          <button onclick="changeQty(${index}, 1)">+</button>
+        </div></td>
+        <td data-label="Сумма">${sum.toLocaleString()} ₽</td>
+        <td data-label="Действия"><button class="remove-btn" onclick="removeItem(${index})">✕</button></td>
+      </tr>`;
+    });
+    html += `</tbody></table>
+      <div class="cart-total">
+        <span class="total-label">Итого:</span>
+        <span class="total-price">${total.toLocaleString()} ₽</span>
+        <button class="btn-checkout" onclick="checkout()">Оформить заказ</button>
+      </div>`;
+    container.innerHTML = html;
+  }
+
+  function changeQty(index, delta) {
+    const newQty = cartItems[index].qty + delta;
+    if (newQty < 1) return;
+    cartItems[index].qty = newQty;
+    renderCart();
+  }
+
+  function setQty(index, value) {
+    const num = parseInt(value);
+    if (isNaN(num) || num < 1) return;
+    cartItems[index].qty = num;
+    renderCart();
+  }
+
+  function removeItem(index) {
+    cartItems.splice(index, 1);
+    renderCart();
+  }
+
+  function checkout() {
+    alert('Спасибо за заказ! Мы свяжемся с вами для подтверждения.');
+  }
+
+  renderCart();
+</script>
+</body>
+</html>
